@@ -1,6 +1,6 @@
 {
   "name": "@modusoperandi/licit-referencing",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "subversion": "1",
   "description": "Referencing plugin built with ProseMirror",
