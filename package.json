@@ -1,0 +1,66 @@
+{
+  "name": "@modusoperandi/licit-referencing",
+  "version": "0.0.1",
+  "type": "module",
+  "subversion": "1",
+  "description": "Referencing plugin built with ProseMirror",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MO-Movia/licit-referencing"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "lint:ts": "eslint src --ext .ts,.tsx --fix",
+    "lint:css": "stylelint \"**/*.css\" --fix",
+    "lint": "npm run lint:css & npm run lint:ts",
+    "ci:build": "tsc -b tsconfig.prod.json --clean && tsc -b tsconfig.prod.json && copyfiles --up 1 \"src/**/*.css\" dist  && copyfiles package.json README.md LICENSE dist",
+    "ci:bom": "npx cyclonedx-npm --ignore-npm-errors --short-PURLs --output-format XML --output-file dist/bom.xml",
+    "test:unit": "jest --coverage",
+    "test:coverage": "jest --coverage",
+    "debug": "node --debug-brk --inspect ./node_modules/.bin/jest -i",
+    "verify": "npm run lint -- --fix && npm run ci:build && npm run test:coverage && echo 'All Tests Passed!'"
+  },
+  "peerDependencies": {
+    "@modusoperandi/licit-ui-commands": "^1.0.0",
+    "prosemirror-model": "^1.19.4",
+    "prosemirror-state": "^1.4.2",
+    "prosemirror-transform": "^1.7.0",
+    "prosemirror-view": "^1.27.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.2",
+    "@types/react": "^18.0.21",
+    "@modusoperandi/eslint-config": "^2.1.4",
+    "copyfiles": "^2.4.1",
+    "eslint": "^9.37.0",
+    "husky": "^8.0.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.1.2",
+    "jest-junit": "^15.0.0",
+    "jest-prosemirror": "^2.0.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "prettier": "^2.1.2",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.2.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "importSort": {
+    ".js": {
+      "parser": "babylon",
+      "style": "module-grouping"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx eslint --fix && prettier --write"
+    }
+  }
+}
