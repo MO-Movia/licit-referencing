@@ -209,7 +209,7 @@ export class ReferenceView implements NodeView {
 
   goToRef = () => {
     const docId = encodeURIComponent(this.node.attrs.docId);
-    const scrollId = encodeURIComponent(this.node.attrs.id);
+    const scrollId = encodeURIComponent(this.node.attrs.scrollId );
     const fullurl = `/knite/document/${docId}?artifactId=${scrollId}`;
     window.open(fullurl, '_blank')?.focus();
   };

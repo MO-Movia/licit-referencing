@@ -7,6 +7,7 @@ export const ReferenceNodeSpec: NodeSpec = {
     docId: { default: null },
     docLabel: { default: null },
     id: { default: null },
+    scrollId: { default: null },
     class: { default: 'ref-background' },
   },
 
