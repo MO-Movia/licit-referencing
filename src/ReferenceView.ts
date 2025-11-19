@@ -74,7 +74,9 @@ export class ReferenceView implements NodeView {
       );
     }
     this.dom.innerText = '';
-    this.dom.childNodes.forEach((n) => this.dom.removeChild(n));
+    for (const n of this.dom.childNodes) {
+      n.remove();
+    }
     this.dom.appendChild(json);
     return json;
   }
@@ -209,7 +211,7 @@ export class ReferenceView implements NodeView {
 
   goToRef = () => {
     const docId = encodeURIComponent(this.node.attrs.docId);
-    const scrollId = encodeURIComponent(this.node.attrs.scrollId );
+    const scrollId = encodeURIComponent(this.node.attrs.scrollId);
     const fullurl = `/knite/document/${docId}?artifactId=${scrollId}`;
     window.open(fullurl, '_blank')?.focus();
   };
