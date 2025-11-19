@@ -15,7 +15,7 @@ describe('Dropdown', () => {
         tr: { replaceSelectionWith },
       },
     } as unknown as EditorView;
-    insertReference(view, '', '', '');
+    insertReference(view, '', '', '','');
     expect(replaceSelectionWith).toHaveBeenCalledWith(node);
   });
 });
