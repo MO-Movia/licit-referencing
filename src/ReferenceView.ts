@@ -1,3 +1,8 @@
+/**
+ * @license MIT
+ * @copyright Copyright 2025 Modus Operandi Inc. All Rights Reserved.
+ */
+
 import { DOMSerializer, Fragment, Node } from 'prosemirror-model';
 import { EditorView, NodeView } from 'prosemirror-view';
 import { HamBurgerIcon, HamBurgerIconProps } from './Dropdown';

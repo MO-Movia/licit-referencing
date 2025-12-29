@@ -1,3 +1,8 @@
+/**
+ * @license MIT
+ * @copyright Copyright 2025 Modus Operandi Inc. All Rights Reserved.
+ */
+
 import { EditorState } from 'prosemirror-state';
 import { schema } from 'jest-prosemirror';
 import { EditorView } from 'prosemirror-view';
