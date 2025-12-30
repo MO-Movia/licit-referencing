@@ -217,4 +217,22 @@ describe('ReferenceView', () => {
     const event = new MouseEvent('mouseout');
     expect(view.dom.dispatchEvent(event)).toBeTruthy();
   });
+  
+  it('ReferenceView loadContent removes existing child nodes', () => {
+  const child1 = document.createElement('span');
+  child1.textContent = 'old1';
+
+  const child2 = document.createElement('span');
+  child2.textContent = 'old2';
+
+  view.dom.appendChild(child1);
+  view.dom.appendChild(child2);
+
+  expect(view.dom.childNodes.length).toBeGreaterThan(0);
+
+  const result = view.loadContent(document.createElement('div'));
+
+  expect(result).toBeDefined();
+  expect(view.dom.childNodes.length).toBe(2);
+});
 });
