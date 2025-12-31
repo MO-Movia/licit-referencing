@@ -1,3 +1,8 @@
+/**
+ * @license MIT
+ * @copyright Copyright 2025 Modus Operandi Inc. All Rights Reserved.
+ */
+
 import { DOMSerializer, Fragment, Node } from 'prosemirror-model';
 import { EditorView, NodeView } from 'prosemirror-view';
 import { HamBurgerIcon, HamBurgerIconProps } from './Dropdown';
@@ -74,7 +79,9 @@ export class ReferenceView implements NodeView {
       );
     }
     this.dom.innerText = '';
-    this.dom.childNodes.forEach((n) => this.dom.removeChild(n));
+    for (const n of this.dom.childNodes) {
+      n.remove();
+    }
     this.dom.appendChild(json);
     return json;
   }
@@ -209,7 +216,7 @@ export class ReferenceView implements NodeView {
 
   goToRef = () => {
     const docId = encodeURIComponent(this.node.attrs.docId);
-    const scrollId = encodeURIComponent(this.node.attrs.id);
+    const scrollId = encodeURIComponent(this.node.attrs.scrollId);
     const fullurl = `/knite/document/${docId}?artifactId=${scrollId}`;
     window.open(fullurl, '_blank')?.focus();
   };

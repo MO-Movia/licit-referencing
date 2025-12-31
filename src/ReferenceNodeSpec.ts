@@ -1,3 +1,8 @@
+/**
+ * @license MIT
+ * @copyright Copyright 2025 Modus Operandi Inc. All Rights Reserved.
+ */
+
 import { NodeSpec } from 'prosemirror-model';
 export const REFERENCE = 'reference';
 
@@ -7,6 +12,7 @@ export const ReferenceNodeSpec: NodeSpec = {
     docId: { default: null },
     docLabel: { default: null },
     id: { default: null },
+    scrollId: { default: null },
     class: { default: 'ref-background' },
   },
 

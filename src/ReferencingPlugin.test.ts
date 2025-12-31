@@ -1,3 +1,8 @@
+/**
+ * @license MIT
+ * @copyright Copyright 2025 Modus Operandi Inc. All Rights Reserved.
+ */
+
 import { schema } from 'jest-prosemirror';
 import { ReferenceNodeSpec, REFERENCE } from './ReferenceNodeSpec';
 import { ReferencingPlugin } from './ReferencingPlugin';
